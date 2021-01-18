@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DLWMS.ConsoleApp", "DLWMS.ConsoleApp\DLWMS.ConsoleApp.csproj", "{00138B49-EAD0-46BC-9C82-1E8DC41689DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DLWMS.WinForms", "DLWMS.WinForms\DLWMS.WinForms.csproj", "{A55787C4-6FFC-4BD2-8538-C2F54EC790FD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{00138B49-EAD0-46BC-9C82-1E8DC41689DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00138B49-EAD0-46BC-9C82-1E8DC41689DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00138B49-EAD0-46BC-9C82-1E8DC41689DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00138B49-EAD0-46BC-9C82-1E8DC41689DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A55787C4-6FFC-4BD2-8538-C2F54EC790FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A55787C4-6FFC-4BD2-8538-C2F54EC790FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A55787C4-6FFC-4BD2-8538-C2F54EC790FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A55787C4-6FFC-4BD2-8538-C2F54EC790FD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D675185F-AA75-49AC-893C-9DBF1CA07386}
+	EndGlobalSection
+EndGlobal
