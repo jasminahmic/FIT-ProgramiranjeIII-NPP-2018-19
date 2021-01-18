@@ -114,6 +114,8 @@ namespace DLWMS.WinForms.I
             // 
             this.txtLozinka.Location = new System.Drawing.Point(262, 280);
             this.txtLozinka.Name = "txtLozinka";
+            this.txtLozinka.PasswordChar = '*';
+            this.txtLozinka.ReadOnly = true;
             this.txtLozinka.Size = new System.Drawing.Size(212, 22);
             this.txtLozinka.TabIndex = 4;
             // 
@@ -121,6 +123,7 @@ namespace DLWMS.WinForms.I
             // 
             this.txtKorisnickoIme.Location = new System.Drawing.Point(262, 223);
             this.txtKorisnickoIme.Name = "txtKorisnickoIme";
+            this.txtKorisnickoIme.ReadOnly = true;
             this.txtKorisnickoIme.Size = new System.Drawing.Size(212, 22);
             this.txtKorisnickoIme.TabIndex = 3;
             // 
@@ -149,6 +152,7 @@ namespace DLWMS.WinForms.I
             this.txtPrezime.Name = "txtPrezime";
             this.txtPrezime.Size = new System.Drawing.Size(212, 22);
             this.txtPrezime.TabIndex = 1;
+            this.txtPrezime.TextChanged += new System.EventHandler(this.txtPrezime_TextChanged);
             // 
             // txtIme
             // 
@@ -156,6 +160,7 @@ namespace DLWMS.WinForms.I
             this.txtIme.Name = "txtIme";
             this.txtIme.Size = new System.Drawing.Size(212, 22);
             this.txtIme.TabIndex = 0;
+            this.txtIme.TextChanged += new System.EventHandler(this.txtIme_TextChanged);
             // 
             // label7
             // 
@@ -231,6 +236,7 @@ namespace DLWMS.WinForms.I
             this.Name = "frmRegistracija";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmRegistracija";
+            this.Load += new System.EventHandler(this.frmRegistracija_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.err)).EndInit();
             this.ResumeLayout(false);

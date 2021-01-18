@@ -59,5 +59,30 @@ namespace DLWMS.WinForms.I
                 Validator.ValidirajKontrolu(txtKorisnickoIme, err, Poruke.ObaveznaVrijednost) &&
                 Validator.ValidirajKontrolu(txtLozinka, err, Poruke.ObaveznaVrijednost);
         }
+
+        private void txtIme_TextChanged(object sender, EventArgs e)
+        {
+            txtKorisnickoIme.Text = $"{txtIme.Text}.{txtPrezime.Text}".ToLower();
+        }
+
+        private void txtPrezime_TextChanged(object sender, EventArgs e)
+        {
+            txtKorisnickoIme.Text = $"{txtIme.Text}.{txtPrezime.Text}".ToLower();
+        }
+
+        private string GenerisiLozinku(int brojZnakova = 15)
+        {
+            string novaLozinka = "";
+            string dozvoljeniZnakovi = "vgyaopjgaqgfj912571085!?-._djiwmfcko";
+            Random random = new Random();
+            for (int i = 0; i < brojZnakova; i++)
+                novaLozinka += dozvoljeniZnakovi[random.Next(0, dozvoljeniZnakovi.Length)];
+            return novaLozinka;
+        }
+
+        private void frmRegistracija_Load(object sender, EventArgs e)
+        {
+            txtLozinka.Text = GenerisiLozinku();
+        }
     }
 }
