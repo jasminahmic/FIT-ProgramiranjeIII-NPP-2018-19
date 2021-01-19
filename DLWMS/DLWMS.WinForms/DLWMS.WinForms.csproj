@@ -52,6 +52,19 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="III\frmNoviStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="III\frmNoviStudent.Designer.cs">
+      <DependentUpon>frmNoviStudent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="III\frmStudenti.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="III\frmStudenti.Designer.cs">
+      <DependentUpon>frmStudenti.cs</DependentUpon>
+    </Compile>
+    <Compile Include="III\Student.cs" />
     <Compile Include="II\frmDogadjaji.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,6 +87,12 @@
     <Compile Include="I\Korisnik.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="III\frmNoviStudent.resx">
+      <DependentUpon>frmNoviStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="III\frmStudenti.resx">
+      <DependentUpon>frmStudenti.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="II\frmDogadjaji.resx">
       <DependentUpon>frmDogadjaji.cs</DependentUpon>
     </EmbeddedResource>

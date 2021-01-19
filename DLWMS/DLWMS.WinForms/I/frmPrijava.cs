@@ -66,16 +66,38 @@ namespace DLWMS.WinForms.I
         public const string KorisnikNePostoji = "Ne postoji korisnik!";
         public const string KorisnikUspjesnoDodan = "Korisnik uspješno dodan!";
         public const string KorisnickiNalogNijeAktivan = "Korisnički nalog nije aktivan!";
+        public const string StudentUspjesnoDodan = "Student uspješno dodan!";
     }
 
     public class Validator
     {
         public static bool ValidirajKontrolu(Control kontrola, ErrorProvider err, string poruka)
         {
-            if (string.IsNullOrEmpty(kontrola.Text))
+            if (kontrola is TextBox)
             {
-                err.SetError(kontrola, poruka);
-                return false;
+                if (string.IsNullOrEmpty(kontrola.Text))
+                {
+                    err.SetError(kontrola, poruka);
+                    return false;
+                }
+            }
+            else if (kontrola is ComboBox)
+            {
+                var cb = kontrola as ComboBox;
+                if (string.IsNullOrEmpty(cb.Text))
+                {
+                    err.SetError(kontrola, poruka);
+                    return false;
+                }
+            }
+            else if (kontrola is PictureBox)
+            {
+                var pb = kontrola as PictureBox;
+                if (pb.Image == null)
+                {
+                    err.SetError(kontrola, poruka);
+                    return false;
+                }
             }
             err.Clear();
             return true;

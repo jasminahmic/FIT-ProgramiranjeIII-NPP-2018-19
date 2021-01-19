@@ -63,6 +63,7 @@ namespace DLWMS.WinForms.I
             this.label5.Size = new System.Drawing.Size(85, 20);
             this.label5.TabIndex = 16;
             this.label5.Text = "www.fit.ba";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // pictureBox1
             // 
@@ -73,6 +74,7 @@ namespace DLWMS.WinForms.I
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 15;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // label3
             // 
@@ -81,6 +83,7 @@ namespace DLWMS.WinForms.I
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(1, 310);
             this.label3.TabIndex = 14;
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // btnSačuvaj
             // 
@@ -100,6 +103,7 @@ namespace DLWMS.WinForms.I
             this.label2.Size = new System.Drawing.Size(61, 17);
             this.label2.TabIndex = 13;
             this.label2.Text = "Lozinka:";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label1
             // 
@@ -109,6 +113,7 @@ namespace DLWMS.WinForms.I
             this.label1.Size = new System.Drawing.Size(103, 17);
             this.label1.TabIndex = 12;
             this.label1.Text = "Korisnicko ime:";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // txtLozinka
             // 
@@ -118,6 +123,7 @@ namespace DLWMS.WinForms.I
             this.txtLozinka.ReadOnly = true;
             this.txtLozinka.Size = new System.Drawing.Size(212, 22);
             this.txtLozinka.TabIndex = 4;
+            this.txtLozinka.TextChanged += new System.EventHandler(this.txtLozinka_TextChanged);
             // 
             // txtKorisnickoIme
             // 
@@ -126,6 +132,7 @@ namespace DLWMS.WinForms.I
             this.txtKorisnickoIme.ReadOnly = true;
             this.txtKorisnickoIme.Size = new System.Drawing.Size(212, 22);
             this.txtKorisnickoIme.TabIndex = 3;
+            this.txtKorisnickoIme.TextChanged += new System.EventHandler(this.txtKorisnickoIme_TextChanged);
             // 
             // label4
             // 
@@ -135,6 +142,7 @@ namespace DLWMS.WinForms.I
             this.label4.Size = new System.Drawing.Size(63, 17);
             this.label4.TabIndex = 20;
             this.label4.Text = "Prezime:";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label6
             // 
@@ -178,6 +186,7 @@ namespace DLWMS.WinForms.I
             this.dtpDatumRodjenja.Name = "dtpDatumRodjenja";
             this.dtpDatumRodjenja.Size = new System.Drawing.Size(212, 22);
             this.dtpDatumRodjenja.TabIndex = 2;
+            this.dtpDatumRodjenja.ValueChanged += new System.EventHandler(this.dtpDatumRodjenja_ValueChanged);
             // 
             // cbAktivan
             // 
@@ -188,6 +197,7 @@ namespace DLWMS.WinForms.I
             this.cbAktivan.TabIndex = 5;
             this.cbAktivan.Text = "Aktivan";
             this.cbAktivan.UseVisualStyleBackColor = true;
+            this.cbAktivan.CheckedChanged += new System.EventHandler(this.cbAktivan_CheckedChanged);
             // 
             // label8
             // 
@@ -197,6 +207,7 @@ namespace DLWMS.WinForms.I
             this.label8.Size = new System.Drawing.Size(228, 17);
             this.label8.TabIndex = 24;
             this.label8.Text = "Univerzitet \"Džemal Bijedić\" Mostar";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // label9
             // 
@@ -206,6 +217,7 @@ namespace DLWMS.WinForms.I
             this.label9.Size = new System.Drawing.Size(220, 17);
             this.label9.TabIndex = 25;
             this.label9.Text = "Fakultet informacijskih tehnologija";
+            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // err
             // 
