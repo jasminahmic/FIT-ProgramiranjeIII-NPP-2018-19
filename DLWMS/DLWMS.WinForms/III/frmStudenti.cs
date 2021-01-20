@@ -44,5 +44,16 @@ namespace DLWMS.WinForms.III
                                                               s.Prezime.ToLower().Contains(filter)).ToList();
             UcitajPodatkeOStudentima(rezultatiPretrage);
         }
+
+        private void dgvStudenti_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var odabraniStudent = dgvStudenti.SelectedRows[0].DataBoundItem as Student;
+            if (odabraniStudent != null)
+            {
+                frmNoviStudent frmNoviStudent = new frmNoviStudent(odabraniStudent);
+                frmNoviStudent.ShowDialog();
+                UcitajPodatkeOStudentima();
+            }
+        }
     }
 }

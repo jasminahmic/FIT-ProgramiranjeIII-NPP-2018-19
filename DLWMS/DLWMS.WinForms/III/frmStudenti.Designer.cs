@@ -56,6 +56,7 @@ namespace DLWMS.WinForms.III
             this.dgvStudenti.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvStudenti.Size = new System.Drawing.Size(662, 233);
             this.dgvStudenti.TabIndex = 0;
+            this.dgvStudenti.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStudenti_CellContentClick);
             // 
             // Indeks
             // 

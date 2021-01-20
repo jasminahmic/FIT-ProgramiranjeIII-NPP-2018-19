@@ -67,37 +67,24 @@ namespace DLWMS.WinForms.I
         public const string KorisnikUspjesnoDodan = "Korisnik uspješno dodan!";
         public const string KorisnickiNalogNijeAktivan = "Korisnički nalog nije aktivan!";
         public const string StudentUspjesnoDodan = "Student uspješno dodan!";
+        public const string StudentPodaciUspjesnoModifikovani = "Podaci studenta uspješno modifikovani!";
     }
 
     public class Validator
     {
         public static bool ValidirajKontrolu(Control kontrola, ErrorProvider err, string poruka)
         {
-            if (kontrola is TextBox)
+            bool _setError = false;
+            if (kontrola is TextBox && string.IsNullOrEmpty(kontrola.Text))
+                _setError = true;
+            else if (kontrola is ComboBox && (string.IsNullOrEmpty((kontrola as ComboBox).Text) || (kontrola as ComboBox).SelectedIndex < 0))
+                _setError = true;
+            else if (kontrola is PictureBox && (kontrola as PictureBox).Image == null)
+                _setError = true;
+            if (_setError)
             {
-                if (string.IsNullOrEmpty(kontrola.Text))
-                {
-                    err.SetError(kontrola, poruka);
-                    return false;
-                }
-            }
-            else if (kontrola is ComboBox)
-            {
-                var cb = kontrola as ComboBox;
-                if (string.IsNullOrEmpty(cb.Text))
-                {
-                    err.SetError(kontrola, poruka);
-                    return false;
-                }
-            }
-            else if (kontrola is PictureBox)
-            {
-                var pb = kontrola as PictureBox;
-                if (pb.Image == null)
-                {
-                    err.SetError(kontrola, poruka);
-                    return false;
-                }
+                err.SetError(kontrola, poruka);
+                return false;
             }
             err.Clear();
             return true;

@@ -1,4 +1,5 @@
 ﻿using DLWMS.WinForms.III;
+using DLWMS.WinForms.IV;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,13 +12,23 @@ namespace DLWMS.WinForms.I
     {
         public static List<Korisnik> Korisnici { get; set; }
         public static List<Student> Studenti { get; set; }
+        public static List<Spol> Spolovi { get; set; }
 
         static InMemoryDB()
         {
             Korisnici = new List<Korisnik>();
             Studenti = new List<Student>();
+            Spolovi = new List<Spol>();
             UcitajBuildInKorisnike();
             UcitajBuildInStudente();
+            UcitajSpolove();
+        }
+
+        private static void UcitajSpolove()
+        {
+            Spolovi.Add(new Spol() { Id = 1, Naziv = "*****" });
+            Spolovi.Add(new Spol() { Id = 2, Naziv = "Ženski" });
+            Spolovi.Add(new Spol() { Id = 3, Naziv = "Muški" });
         }
 
         private static void UcitajBuildInStudente()

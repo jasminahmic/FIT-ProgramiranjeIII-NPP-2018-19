@@ -1,4 +1,5 @@
 ﻿using DLWMS.WinForms.I;
+using DLWMS.WinForms.IV;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,9 +14,48 @@ namespace DLWMS.WinForms.III
 {
     public partial class frmNoviStudent : Form
     {
+        private Student _student;
+        private bool _promjena;
         public frmNoviStudent()
         {
             InitializeComponent();
+            UcitajPodatke();
+        }
+
+        public frmNoviStudent(Student student) : this()
+        {
+            this._student = student;
+            UcitajPodatkeOStudentu();
+            _promjena = true;
+        }
+
+        private void UcitajPodatke()
+        {
+            GenerisiBrojIndeksa();
+            UcitajSpolove();
+        }
+
+        private void UcitajSpolove()
+        {
+            cmbSpol.DataSource = InMemoryDB.Spolovi;
+            cmbSpol.DisplayMember = "Naziv";
+            cmbSpol.ValueMember = "Id";
+        }
+
+        private void UcitajPodatkeOStudentu()
+        {
+            if (_student != null)
+            {
+                txtIme.Text = _student.Ime;
+                txtPrezime.Text = _student.Prezime;
+                dtpDatumRodjenja.Value = _student.DatumRodjenja;
+                txtEmail.Text = _student.Email;
+                txtIndeks.Text = _student.Indeks;
+                cbGodinaStudija.SelectedIndex = cbGodinaStudija.Items.IndexOf(_student.GodinaStudija.ToString());
+                cbAktivan.Checked = _student.Aktivan;
+                cmbSpol.SelectedValue = _student.Spol.Id;
+                pictureBox2.Image = _student.Slika;
+            }
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -28,7 +68,6 @@ namespace DLWMS.WinForms.III
 
         private void frmNoviStudent_Load(object sender, EventArgs e)
         {
-            GenerisiBrojIndeksa();
         }
 
         private void GenerisiBrojIndeksa()
@@ -61,19 +100,29 @@ namespace DLWMS.WinForms.III
         {
             if (ValidirajUnos())
             {
-                InMemoryDB.Studenti.Add(new Student()
+                if (!_promjena)
                 {
-                    Id = InMemoryDB.Studenti.Count + 1,
-                    Ime = txtIme.Text,
-                    Prezime = txtPrezime.Text,
-                    DatumRodjenja = dtpDatumRodjenja.Value,
-                    Email = txtEmail.Text,
-                    Indeks = txtIndeks.Text,
-                    GodinaStudija = int.Parse(cbGodinaStudija.Text),
-                    Aktivan = cbAktivan.Checked,
-                    Slika = pictureBox2.Image
-                });
-                MessageBox.Show(Poruke.StudentUspjesnoDodan);
+                    _student = new Student();
+                    _student.Id = InMemoryDB.Studenti.Count + 1;
+                }
+                _student.Ime = txtIme.Text;
+                _student.Prezime = txtPrezime.Text;
+                _student.DatumRodjenja = dtpDatumRodjenja.Value;
+                _student.Email = txtEmail.Text;
+                _student.Indeks = txtIndeks.Text;
+                _student.GodinaStudija = int.Parse(cbGodinaStudija.Text);
+                _student.Aktivan = cbAktivan.Checked;
+                _student.Spol = cmbSpol.SelectedItem as Spol;
+                _student.Slika = pictureBox2.Image;
+                if (_promjena)
+                {
+                    MessageBox.Show(Poruke.StudentPodaciUspjesnoModifikovani);
+                }
+                else
+                {
+                    InMemoryDB.Studenti.Add(_student);
+                    MessageBox.Show(Poruke.StudentUspjesnoDodan);
+                }
                 Close();
             }
         }
@@ -83,6 +132,7 @@ namespace DLWMS.WinForms.III
             return Validator.ValidirajKontrolu(txtIme, err, Poruke.ObaveznaVrijednost) &&
                 Validator.ValidirajKontrolu(txtPrezime, err, Poruke.ObaveznaVrijednost) &&
                 Validator.ValidirajKontrolu(txtEmail, err, Poruke.ObaveznaVrijednost) &&
+                Validator.ValidirajKontrolu(cmbSpol, err, Poruke.ObaveznaVrijednost) &&
                 Validator.ValidirajKontrolu(txtIndeks, err, Poruke.ObaveznaVrijednost) &&
                 Validator.ValidirajKontrolu(pictureBox2, err, Poruke.ObaveznaVrijednost) &&
                 Validator.ValidirajKontrolu(cbGodinaStudija, err, Poruke.ObaveznaVrijednost);

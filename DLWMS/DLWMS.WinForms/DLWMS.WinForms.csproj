@@ -71,6 +71,7 @@
     <Compile Include="II\frmDogadjaji.Designer.cs">
       <DependentUpon>frmDogadjaji.cs</DependentUpon>
     </Compile>
+    <Compile Include="IV\Spol.cs" />
     <Compile Include="I\frmPrijava.cs">
       <SubType>Form</SubType>
     </Compile>

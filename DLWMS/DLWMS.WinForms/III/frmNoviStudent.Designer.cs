@@ -53,6 +53,8 @@ namespace DLWMS.WinForms.III
             this.txtIndeks = new System.Windows.Forms.TextBox();
             this.ofdOdabirSlike = new System.Windows.Forms.OpenFileDialog();
             this.err = new System.Windows.Forms.ErrorProvider(this.components);
+            this.cmbSpol = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.err)).BeginInit();
@@ -79,7 +81,7 @@ namespace DLWMS.WinForms.III
             // cbAktivan
             // 
             this.cbAktivan.AutoSize = true;
-            this.cbAktivan.Location = new System.Drawing.Point(368, 412);
+            this.cbAktivan.Location = new System.Drawing.Point(465, 400);
             this.cbAktivan.Name = "cbAktivan";
             this.cbAktivan.Size = new System.Drawing.Size(76, 21);
             this.cbAktivan.TabIndex = 6;
@@ -88,7 +90,7 @@ namespace DLWMS.WinForms.III
             // 
             // dtpDatumRodjenja
             // 
-            this.dtpDatumRodjenja.Location = new System.Drawing.Point(232, 312);
+            this.dtpDatumRodjenja.Location = new System.Drawing.Point(329, 279);
             this.dtpDatumRodjenja.Name = "dtpDatumRodjenja";
             this.dtpDatumRodjenja.Size = new System.Drawing.Size(212, 22);
             this.dtpDatumRodjenja.TabIndex = 3;
@@ -96,7 +98,7 @@ namespace DLWMS.WinForms.III
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(229, 290);
+            this.label7.Location = new System.Drawing.Point(220, 282);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(105, 17);
             this.label7.TabIndex = 40;
@@ -105,7 +107,7 @@ namespace DLWMS.WinForms.III
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(229, 241);
+            this.label4.Location = new System.Drawing.Point(220, 243);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(63, 17);
             this.label4.TabIndex = 39;
@@ -114,7 +116,7 @@ namespace DLWMS.WinForms.III
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(229, 192);
+            this.label6.Location = new System.Drawing.Point(220, 204);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(34, 17);
             this.label6.TabIndex = 38;
@@ -122,7 +124,7 @@ namespace DLWMS.WinForms.III
             // 
             // txtPrezime
             // 
-            this.txtPrezime.Location = new System.Drawing.Point(232, 263);
+            this.txtPrezime.Location = new System.Drawing.Point(329, 240);
             this.txtPrezime.Name = "txtPrezime";
             this.txtPrezime.Size = new System.Drawing.Size(212, 22);
             this.txtPrezime.TabIndex = 2;
@@ -130,7 +132,7 @@ namespace DLWMS.WinForms.III
             // 
             // txtIme
             // 
-            this.txtIme.Location = new System.Drawing.Point(232, 214);
+            this.txtIme.Location = new System.Drawing.Point(329, 201);
             this.txtIme.Name = "txtIme";
             this.txtIme.Size = new System.Drawing.Size(212, 22);
             this.txtIme.TabIndex = 1;
@@ -167,7 +169,7 @@ namespace DLWMS.WinForms.III
             // 
             // btnSačuvaj
             // 
-            this.btnSačuvaj.Location = new System.Drawing.Point(302, 457);
+            this.btnSačuvaj.Location = new System.Drawing.Point(350, 457);
             this.btnSačuvaj.Name = "btnSačuvaj";
             this.btnSačuvaj.Size = new System.Drawing.Size(83, 36);
             this.btnSačuvaj.TabIndex = 7;
@@ -178,7 +180,7 @@ namespace DLWMS.WinForms.III
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(229, 388);
+            this.label2.Location = new System.Drawing.Point(220, 399);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(103, 17);
             this.label2.TabIndex = 34;
@@ -187,7 +189,7 @@ namespace DLWMS.WinForms.III
             // labelEmail
             // 
             this.labelEmail.AutoSize = true;
-            this.labelEmail.Location = new System.Drawing.Point(229, 339);
+            this.labelEmail.Location = new System.Drawing.Point(220, 360);
             this.labelEmail.Name = "labelEmail";
             this.labelEmail.Size = new System.Drawing.Size(46, 17);
             this.labelEmail.TabIndex = 33;
@@ -195,7 +197,7 @@ namespace DLWMS.WinForms.III
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(232, 361);
+            this.txtEmail.Location = new System.Drawing.Point(329, 359);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.ReadOnly = true;
             this.txtEmail.Size = new System.Drawing.Size(212, 22);
@@ -203,7 +205,7 @@ namespace DLWMS.WinForms.III
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(12, 192);
+            this.pictureBox2.Location = new System.Drawing.Point(12, 201);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(188, 213);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -221,7 +223,7 @@ namespace DLWMS.WinForms.III
             "4",
             "5",
             "6"});
-            this.cbGodinaStudija.Location = new System.Drawing.Point(232, 410);
+            this.cbGodinaStudija.Location = new System.Drawing.Point(329, 398);
             this.cbGodinaStudija.Name = "cbGodinaStudija";
             this.cbGodinaStudija.Size = new System.Drawing.Size(102, 24);
             this.cbGodinaStudija.TabIndex = 5;
@@ -229,7 +231,7 @@ namespace DLWMS.WinForms.III
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(229, 143);
+            this.label1.Location = new System.Drawing.Point(220, 165);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(53, 17);
             this.label1.TabIndex = 46;
@@ -237,7 +239,7 @@ namespace DLWMS.WinForms.III
             // 
             // txtIndeks
             // 
-            this.txtIndeks.Location = new System.Drawing.Point(232, 165);
+            this.txtIndeks.Location = new System.Drawing.Point(329, 162);
             this.txtIndeks.Name = "txtIndeks";
             this.txtIndeks.Size = new System.Drawing.Size(212, 22);
             this.txtIndeks.TabIndex = 0;
@@ -250,11 +252,30 @@ namespace DLWMS.WinForms.III
             // 
             this.err.ContainerControl = this;
             // 
+            // cmbSpol
+            // 
+            this.cmbSpol.FormattingEnabled = true;
+            this.cmbSpol.Location = new System.Drawing.Point(329, 318);
+            this.cmbSpol.Name = "cmbSpol";
+            this.cmbSpol.Size = new System.Drawing.Size(102, 24);
+            this.cmbSpol.TabIndex = 47;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(220, 321);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(40, 17);
+            this.label10.TabIndex = 48;
+            this.label10.Text = "Spol:";
+            // 
             // frmNoviStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(460, 505);
+            this.ClientSize = new System.Drawing.Size(569, 505);
+            this.Controls.Add(this.cmbSpol);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtIndeks);
             this.Controls.Add(this.cbGodinaStudija);
@@ -310,5 +331,7 @@ namespace DLWMS.WinForms.III
         private System.Windows.Forms.TextBox txtIndeks;
         private System.Windows.Forms.OpenFileDialog ofdOdabirSlike;
         private System.Windows.Forms.ErrorProvider err;
+        private System.Windows.Forms.ComboBox cmbSpol;
+        private System.Windows.Forms.Label label10;
     }
 }
