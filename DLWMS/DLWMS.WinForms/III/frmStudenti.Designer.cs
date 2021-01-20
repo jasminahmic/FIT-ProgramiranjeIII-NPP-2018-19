@@ -36,6 +36,7 @@ namespace DLWMS.WinForms.III
             this.GodinaStudija = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Aktivan = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.btnNoviStudent = new System.Windows.Forms.Button();
+            this.txtPretragaStudenta = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudenti)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,12 +49,12 @@ namespace DLWMS.WinForms.III
             this.Prezime,
             this.GodinaStudija,
             this.Aktivan});
-            this.dgvStudenti.Location = new System.Drawing.Point(12, 62);
+            this.dgvStudenti.Location = new System.Drawing.Point(12, 55);
             this.dgvStudenti.Name = "dgvStudenti";
             this.dgvStudenti.RowHeadersWidth = 51;
             this.dgvStudenti.RowTemplate.Height = 24;
             this.dgvStudenti.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvStudenti.Size = new System.Drawing.Size(662, 226);
+            this.dgvStudenti.Size = new System.Drawing.Size(662, 233);
             this.dgvStudenti.TabIndex = 0;
             // 
             // Indeks
@@ -98,19 +99,29 @@ namespace DLWMS.WinForms.III
             // 
             // btnNoviStudent
             // 
-            this.btnNoviStudent.Location = new System.Drawing.Point(552, 21);
+            this.btnNoviStudent.Location = new System.Drawing.Point(551, 23);
             this.btnNoviStudent.Name = "btnNoviStudent";
-            this.btnNoviStudent.Size = new System.Drawing.Size(122, 35);
+            this.btnNoviStudent.Size = new System.Drawing.Size(122, 26);
             this.btnNoviStudent.TabIndex = 1;
             this.btnNoviStudent.Text = "Novi student";
             this.btnNoviStudent.UseVisualStyleBackColor = true;
             this.btnNoviStudent.Click += new System.EventHandler(this.btnNoviStudent_Click);
+            // 
+            // txtPretragaStudenta
+            // 
+            this.txtPretragaStudenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txtPretragaStudenta.Location = new System.Drawing.Point(12, 23);
+            this.txtPretragaStudenta.Name = "txtPretragaStudenta";
+            this.txtPretragaStudenta.Size = new System.Drawing.Size(534, 26);
+            this.txtPretragaStudenta.TabIndex = 2;
+            this.txtPretragaStudenta.TextChanged += new System.EventHandler(this.txtPretragaStudenta_TextChanged);
             // 
             // frmStudenti
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(685, 305);
+            this.Controls.Add(this.txtPretragaStudenta);
             this.Controls.Add(this.btnNoviStudent);
             this.Controls.Add(this.dgvStudenti);
             this.Name = "frmStudenti";
@@ -119,6 +130,7 @@ namespace DLWMS.WinForms.III
             this.Load += new System.EventHandler(this.frmStudenti_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudenti)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -131,5 +143,6 @@ namespace DLWMS.WinForms.III
         private System.Windows.Forms.DataGridViewTextBoxColumn GodinaStudija;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Aktivan;
         private System.Windows.Forms.Button btnNoviStudent;
+        private System.Windows.Forms.TextBox txtPretragaStudenta;
     }
 }

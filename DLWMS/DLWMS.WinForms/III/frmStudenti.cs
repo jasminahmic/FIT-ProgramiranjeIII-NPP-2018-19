@@ -31,10 +31,18 @@ namespace DLWMS.WinForms.III
             UcitajPodatkeOStudentima();
         }
 
-        private void UcitajPodatkeOStudentima()
+        private void UcitajPodatkeOStudentima(List<Student> studenti = null)
         {
             dgvStudenti.DataSource = null;
-            dgvStudenti.DataSource = InMemoryDB.Studenti;
+            dgvStudenti.DataSource = studenti ?? InMemoryDB.Studenti;
+        }
+
+        private void txtPretragaStudenta_TextChanged(object sender, EventArgs e)
+        {
+            string filter = txtPretragaStudenta.Text;
+            var rezultatiPretrage = InMemoryDB.Studenti.Where(s => s.Ime.ToLower().Contains(filter) ||
+                                                              s.Prezime.ToLower().Contains(filter)).ToList();
+            UcitajPodatkeOStudentima(rezultatiPretrage);
         }
     }
 }
