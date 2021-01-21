@@ -30,13 +30,14 @@ namespace DLWMS.WinForms.III
         private void InitializeComponent()
         {
             this.dgvStudenti = new System.Windows.Forms.DataGridView();
+            this.btnNoviStudent = new System.Windows.Forms.Button();
+            this.txtPretragaStudenta = new System.Windows.Forms.TextBox();
             this.Indeks = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Prezime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GodinaStudija = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Aktivan = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.btnNoviStudent = new System.Windows.Forms.Button();
-            this.txtPretragaStudenta = new System.Windows.Forms.TextBox();
+            this.Polozeni = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudenti)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,7 +49,8 @@ namespace DLWMS.WinForms.III
             this.Ime,
             this.Prezime,
             this.GodinaStudija,
-            this.Aktivan});
+            this.Aktivan,
+            this.Polozeni});
             this.dgvStudenti.Location = new System.Drawing.Point(12, 55);
             this.dgvStudenti.Name = "dgvStudenti";
             this.dgvStudenti.RowHeadersWidth = 51;
@@ -57,6 +59,25 @@ namespace DLWMS.WinForms.III
             this.dgvStudenti.Size = new System.Drawing.Size(662, 233);
             this.dgvStudenti.TabIndex = 0;
             this.dgvStudenti.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStudenti_CellContentClick);
+            // 
+            // btnNoviStudent
+            // 
+            this.btnNoviStudent.Location = new System.Drawing.Point(551, 23);
+            this.btnNoviStudent.Name = "btnNoviStudent";
+            this.btnNoviStudent.Size = new System.Drawing.Size(122, 26);
+            this.btnNoviStudent.TabIndex = 1;
+            this.btnNoviStudent.Text = "Novi student";
+            this.btnNoviStudent.UseVisualStyleBackColor = true;
+            this.btnNoviStudent.Click += new System.EventHandler(this.btnNoviStudent_Click);
+            // 
+            // txtPretragaStudenta
+            // 
+            this.txtPretragaStudenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txtPretragaStudenta.Location = new System.Drawing.Point(12, 23);
+            this.txtPretragaStudenta.Name = "txtPretragaStudenta";
+            this.txtPretragaStudenta.Size = new System.Drawing.Size(534, 26);
+            this.txtPretragaStudenta.TabIndex = 2;
+            this.txtPretragaStudenta.TextChanged += new System.EventHandler(this.txtPretragaStudenta_TextChanged);
             // 
             // Indeks
             // 
@@ -84,11 +105,11 @@ namespace DLWMS.WinForms.III
             // 
             // GodinaStudija
             // 
+            this.GodinaStudija.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.GodinaStudija.DataPropertyName = "GodinaStudija";
             this.GodinaStudija.HeaderText = "Godina studija";
             this.GodinaStudija.MinimumWidth = 6;
             this.GodinaStudija.Name = "GodinaStudija";
-            this.GodinaStudija.Width = 122;
             // 
             // Aktivan
             // 
@@ -98,24 +119,13 @@ namespace DLWMS.WinForms.III
             this.Aktivan.Name = "Aktivan";
             this.Aktivan.Width = 122;
             // 
-            // btnNoviStudent
+            // Polozeni
             // 
-            this.btnNoviStudent.Location = new System.Drawing.Point(551, 23);
-            this.btnNoviStudent.Name = "btnNoviStudent";
-            this.btnNoviStudent.Size = new System.Drawing.Size(122, 26);
-            this.btnNoviStudent.TabIndex = 1;
-            this.btnNoviStudent.Text = "Novi student";
-            this.btnNoviStudent.UseVisualStyleBackColor = true;
-            this.btnNoviStudent.Click += new System.EventHandler(this.btnNoviStudent_Click);
-            // 
-            // txtPretragaStudenta
-            // 
-            this.txtPretragaStudenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txtPretragaStudenta.Location = new System.Drawing.Point(12, 23);
-            this.txtPretragaStudenta.Name = "txtPretragaStudenta";
-            this.txtPretragaStudenta.Size = new System.Drawing.Size(534, 26);
-            this.txtPretragaStudenta.TabIndex = 2;
-            this.txtPretragaStudenta.TextChanged += new System.EventHandler(this.txtPretragaStudenta_TextChanged);
+            this.Polozeni.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Polozeni.HeaderText = "Polozeni";
+            this.Polozeni.MinimumWidth = 6;
+            this.Polozeni.Name = "Polozeni";
+            this.Polozeni.Text = "Polozeni";
             // 
             // frmStudenti
             // 
@@ -138,12 +148,13 @@ namespace DLWMS.WinForms.III
         #endregion
 
         private System.Windows.Forms.DataGridView dgvStudenti;
+        private System.Windows.Forms.Button btnNoviStudent;
+        private System.Windows.Forms.TextBox txtPretragaStudenta;
         private System.Windows.Forms.DataGridViewTextBoxColumn Indeks;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ime;
         private System.Windows.Forms.DataGridViewTextBoxColumn Prezime;
         private System.Windows.Forms.DataGridViewTextBoxColumn GodinaStudija;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Aktivan;
-        private System.Windows.Forms.Button btnNoviStudent;
-        private System.Windows.Forms.TextBox txtPretragaStudenta;
+        private System.Windows.Forms.DataGridViewButtonColumn Polozeni;
     }
 }

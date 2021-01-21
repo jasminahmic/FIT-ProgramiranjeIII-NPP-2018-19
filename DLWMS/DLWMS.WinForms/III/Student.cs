@@ -20,6 +20,11 @@ namespace DLWMS.WinForms.III
         public DateTime DatumRodjenja { get; set; }
         public bool Aktivan { get; set; }
         public Spol Spol { get; set; }
+        public List<PolozeniPredmet> PolozeniPredmeti { get; set; }
+        public Student()
+        {
+            PolozeniPredmeti = new List<PolozeniPredmet>();
+        }
         public override string ToString()
         {
             return $"{Ime} {Prezime}";

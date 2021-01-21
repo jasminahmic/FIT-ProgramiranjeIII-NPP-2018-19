@@ -1,4 +1,5 @@
 ﻿using DLWMS.WinForms.I;
+using DLWMS.WinForms.IV;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -48,10 +49,14 @@ namespace DLWMS.WinForms.III
         private void dgvStudenti_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             var odabraniStudent = dgvStudenti.SelectedRows[0].DataBoundItem as Student;
+            Form forma = null;
             if (odabraniStudent != null)
             {
-                frmNoviStudent frmNoviStudent = new frmNoviStudent(odabraniStudent);
-                frmNoviStudent.ShowDialog();
+                if (e.ColumnIndex == 5)
+                    forma = new frmPolozeniPredmeti(odabraniStudent);
+                else
+                    forma = new frmNoviStudent(odabraniStudent);
+                forma.ShowDialog();
                 UcitajPodatkeOStudentima();
             }
         }

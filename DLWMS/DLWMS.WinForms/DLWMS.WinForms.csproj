@@ -71,6 +71,13 @@
     <Compile Include="II\frmDogadjaji.Designer.cs">
       <DependentUpon>frmDogadjaji.cs</DependentUpon>
     </Compile>
+    <Compile Include="IV\frmPolozeniPredmeti.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IV\frmPolozeniPredmeti.Designer.cs">
+      <DependentUpon>frmPolozeniPredmeti.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IV\Predmet.cs" />
     <Compile Include="IV\Spol.cs" />
     <Compile Include="I\frmPrijava.cs">
       <SubType>Form</SubType>
@@ -96,6 +103,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="II\frmDogadjaji.resx">
       <DependentUpon>frmDogadjaji.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IV\frmPolozeniPredmeti.resx">
+      <DependentUpon>frmPolozeniPredmeti.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="I\frmPrijava.resx">
       <DependentUpon>frmPrijava.cs</DependentUpon>
