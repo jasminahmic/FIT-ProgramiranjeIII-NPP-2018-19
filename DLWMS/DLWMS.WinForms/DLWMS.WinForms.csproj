@@ -98,6 +98,7 @@
     </Compile>
     <Compile Include="IV\Predmet.cs" />
     <Compile Include="IV\Spol.cs" />
+    <Compile Include="IV\Uloga.cs" />
     <Compile Include="I\frmPrijava.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,6 +115,9 @@
     <Compile Include="I\Korisnik.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VI\DLWMSdb.cs" />
+    <Compile Include="VI\StudentiPredmeti.cs" />
+    <Compile Include="VI\StudentiUloge.cs" />
     <Compile Include="V\frmSQLite.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,6 +156,9 @@
     <EmbeddedResource Include="V\frmSQLite.resx">
       <DependentUpon>frmSQLite.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="DLWMS.db">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

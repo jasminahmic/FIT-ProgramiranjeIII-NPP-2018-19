@@ -1,6 +1,7 @@
 ﻿using DLWMS.WinForms.I;
 using DLWMS.WinForms.IV;
 using DLWMS.WinForms.V;
+using DLWMS.WinForms.VI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,7 +18,7 @@ namespace DLWMS.WinForms.III
     {
         private Student _student;
         private bool _promjena;
-        KonekcijaNaBazu _db = new KonekcijaNaBazu();
+        KonekcijaNaBazu _db = DLWMSdb.Baza;
         public frmNoviStudent()
         {
             InitializeComponent();
@@ -39,7 +40,7 @@ namespace DLWMS.WinForms.III
 
         private void UcitajSpolove()
         {
-            cmbSpol.DataSource = InMemoryDB.Spolovi;
+            cmbSpol.DataSource = _db.Spolovi.ToList();
             cmbSpol.DisplayMember = "Naziv";
             cmbSpol.ValueMember = "Id";
         }
@@ -55,7 +56,8 @@ namespace DLWMS.WinForms.III
                 txtIndeks.Text = _student.Indeks;
                 cbGodinaStudija.SelectedIndex = cbGodinaStudija.Items.IndexOf(_student.GodinaStudija.ToString());
                 cbAktivan.Checked = _student.Aktivan;
-                cmbSpol.SelectedValue = _student.Spol.Id;
+                if(_student.Spol != null)
+                    cmbSpol.SelectedValue = _student.Spol.Id;
                 pictureBox2.Image = ImageHelper.FromByteToImage(_student.Slika);
             }
         }
@@ -118,6 +120,7 @@ namespace DLWMS.WinForms.III
                 _student.Slika = ImageHelper.FromImageToByte(pictureBox2.Image);
                 if (_promjena)
                 {
+                    _db.Entry(_student).State = System.Data.Entity.EntityState.Modified;
                     MessageBox.Show(Poruke.StudentPodaciUspjesnoModifikovani);
                 }
                 else

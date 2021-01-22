@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DLWMS.WinForms.III;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -7,14 +8,16 @@ using System.Threading.Tasks;
 
 namespace DLWMS.WinForms.IV
 {
-    [Table("Spolovi")]
-    public class Spol
+    [Table("Uloge")]
+    public class Uloga
     {
         public int Id { get; set; }
         public string Naziv { get; set; }
-        public override string ToString()
+        public ICollection<Student> Studenti { get; set; }
+
+        public Uloga()
         {
-            return $"{Naziv}";
+            Studenti = new HashSet<Student>();
         }
     }
 }

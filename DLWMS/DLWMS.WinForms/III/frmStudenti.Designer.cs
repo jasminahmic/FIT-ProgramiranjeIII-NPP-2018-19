@@ -35,6 +35,7 @@ namespace DLWMS.WinForms.III
             this.Indeks = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Prezime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Spol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GodinaStudija = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Aktivan = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Polozeni = new System.Windows.Forms.DataGridViewButtonColumn();
@@ -48,6 +49,7 @@ namespace DLWMS.WinForms.III
             this.Indeks,
             this.Ime,
             this.Prezime,
+            this.Spol,
             this.GodinaStudija,
             this.Aktivan,
             this.Polozeni});
@@ -103,6 +105,14 @@ namespace DLWMS.WinForms.III
             this.Prezime.MinimumWidth = 6;
             this.Prezime.Name = "Prezime";
             // 
+            // Spol
+            // 
+            this.Spol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Spol.DataPropertyName = "Spol";
+            this.Spol.HeaderText = "Spol";
+            this.Spol.MinimumWidth = 6;
+            this.Spol.Name = "Spol";
+            // 
             // GodinaStudija
             // 
             this.GodinaStudija.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -153,6 +163,7 @@ namespace DLWMS.WinForms.III
         private System.Windows.Forms.DataGridViewTextBoxColumn Indeks;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ime;
         private System.Windows.Forms.DataGridViewTextBoxColumn Prezime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Spol;
         private System.Windows.Forms.DataGridViewTextBoxColumn GodinaStudija;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Aktivan;
         private System.Windows.Forms.DataGridViewButtonColumn Polozeni;

@@ -1,6 +1,7 @@
 ﻿using DLWMS.WinForms.I;
 using DLWMS.WinForms.IV;
 using DLWMS.WinForms.V;
+using DLWMS.WinForms.VI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,7 +16,7 @@ namespace DLWMS.WinForms.III
 {
     public partial class frmStudenti : Form
     {
-        KonekcijaNaBazu _db = new KonekcijaNaBazu();
+        KonekcijaNaBazu _db = DLWMSdb.Baza;
         public frmStudenti()
         {
             InitializeComponent();
@@ -54,7 +55,7 @@ namespace DLWMS.WinForms.III
             Form forma = null;
             if (odabraniStudent != null)
             {
-                if (e.ColumnIndex == 5)
+                if (e.ColumnIndex == 6) 
                     forma = new frmPolozeniPredmeti(odabraniStudent);
                 else
                     forma = new frmNoviStudent(odabraniStudent);

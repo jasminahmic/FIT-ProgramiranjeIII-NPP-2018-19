@@ -22,12 +22,13 @@ namespace DLWMS.WinForms.III
         public string Prezime { get; set; }
         public DateTime DatumRodjenja { get; set; }
         public bool Aktivan { get; set; }
-        [NotMapped]
-        public Spol Spol { get; set; }
+        public virtual Spol Spol { get; set; }
         public List<PolozeniPredmet> PolozeniPredmeti { get; set; }
+        public ICollection<Uloga> Uloge { get; set; }
         public Student()
         {
             PolozeniPredmeti = new List<PolozeniPredmet>();
+            Uloge = new HashSet<Uloga>();
         }
         public override string ToString()
         {

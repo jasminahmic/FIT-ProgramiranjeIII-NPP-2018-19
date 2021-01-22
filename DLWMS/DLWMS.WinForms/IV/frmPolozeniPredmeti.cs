@@ -1,5 +1,7 @@
 ﻿using DLWMS.WinForms.I;
 using DLWMS.WinForms.III;
+using DLWMS.WinForms.V;
+using DLWMS.WinForms.VI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,6 +17,7 @@ namespace DLWMS.WinForms.IV
     public partial class frmPolozeniPredmeti : Form
     {
         Student _student;
+        KonekcijaNaBazu _db = DLWMSdb.Baza;
         public frmPolozeniPredmeti(Student student)
         {
             InitializeComponent();
@@ -28,6 +31,7 @@ namespace DLWMS.WinForms.IV
             {
                 UcitajPredmete();
                 UcitajPolozenePredmete();
+                UcitajUloge();
             }
             catch (Exception ex)
             {
@@ -35,18 +39,22 @@ namespace DLWMS.WinForms.IV
             }
         }
 
+        private void UcitajUloge()
+        {
+            dgvUloge.DataSource = null;
+            dgvUloge.DataSource = _student.Uloge.ToList();
+            //dgvUloge.DataSource = _db.StudentiUloge.Where(x => x.Student.Id == _student.Id).ToList();
+        }
+
         private void UcitajPolozenePredmete()
         {
             dgvPolozeniPredmeti.DataSource = null;
-            dgvPolozeniPredmeti.DataSource = new BindingSource()
-            {
-                DataSource = _student.PolozeniPredmeti
-            };
+            dgvPolozeniPredmeti.DataSource = _db.StudentiPredmeti.Where(x => x.Student.Id == _student.Id).ToList();
         }
 
         private void UcitajPredmete()
         {
-            cmbPredmet.DataSource = InMemoryDB.NPP;
+            cmbPredmet.DataSource = _db.Predmeti.ToList();
             cmbPredmet.DisplayMember = "Naziv";
             cmbPredmet.ValueMember = "Id";
         }
@@ -55,13 +63,21 @@ namespace DLWMS.WinForms.IV
         {
             if (ValidanUnos())
             {
-                _student.PolozeniPredmeti.Add(new PolozeniPredmet()
+                _db.StudentiPredmeti.Add(new StudentiPredmeti()
                 {
-                    Id = _student.PolozeniPredmeti.Count + 1,
-                    DatumPolaganja = dtpDatumPolaganja.Value,
-                    Ocjena = int.Parse(cmbOcjena.Text),
-                    Predmet = cmbPredmet.SelectedItem as Predmet
+                    Student = _student,
+                    Predmet = cmbPredmet.SelectedItem as Predmet,
+                    Datum = dtpDatumPolaganja.Value,
+                    Ocjena = int.Parse(cmbOcjena.Text)
                 });
+                _db.SaveChanges();
+                //_student.PolozeniPredmeti.Add(new PolozeniPredmet()
+                //{
+                //    Id = _student.PolozeniPredmeti.Count + 1,
+                //    DatumPolaganja = dtpDatumPolaganja.Value,
+                //    Ocjena = int.Parse(cmbOcjena.Text),
+                //    Predmet = cmbPredmet.SelectedItem as Predmet
+                //});
                 UcitajPolozenePredmete();
                 OnemoguciDodavanje();
                 UcitajStatistiku();
@@ -94,6 +110,24 @@ namespace DLWMS.WinForms.IV
             var odabraniPredmet = cmbPredmet.SelectedItem as Predmet;
             var postoji = _student.PolozeniPredmeti.Where(polozeni => polozeni.Predmet.Id == odabraniPredmet.Id).Count() > 0;
             btnDodajPolozeniPredmet.Enabled = !postoji;
+        }
+
+        private void dgvPolozeniPredmeti_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                _student.Uloge.Add(_db.Uloge.Find(1));
+                _db.SaveChanges();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

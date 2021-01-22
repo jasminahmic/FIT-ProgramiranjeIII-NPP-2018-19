@@ -1,4 +1,6 @@
 ﻿using DLWMS.WinForms.III;
+using DLWMS.WinForms.IV;
+using DLWMS.WinForms.VI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -16,8 +18,27 @@ namespace DLWMS.WinForms.V
 
         }
 
-        public DbSet<Prisustva> Prisustva { get; set; }
-        public DbSet<Student> Studenti { get; set; }
+        public virtual DbSet<Prisustva> Prisustva { get; set; }
+        public virtual DbSet<Student> Studenti { get; set; }
+        public virtual DbSet<Spol> Spolovi { get; set; }
+        public virtual DbSet<Predmet> Predmeti { get; set; }
+        public virtual DbSet<StudentiPredmeti> StudentiPredmeti { get; set; }
+       // public virtual DbSet<StudentiUloge> StudentiUloge { get; set; }
+        public virtual DbSet<Uloga> Uloge { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Student>()
+                .HasMany(x => x.Uloge)
+                .WithMany(u => u.Studenti)
+                .Map(su => 
+                {
+                    su.MapLeftKey("Student_Id");
+                    su.MapRightKey("Uloge_Id");
+                    su.ToTable("StudentiUloge");
+                });
+        }
     }
 
     [Table("Prisustva")]
