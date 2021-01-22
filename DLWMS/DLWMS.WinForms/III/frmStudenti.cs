@@ -1,5 +1,6 @@
 ﻿using DLWMS.WinForms.I;
 using DLWMS.WinForms.IV;
+using DLWMS.WinForms.V;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,7 @@ namespace DLWMS.WinForms.III
 {
     public partial class frmStudenti : Form
     {
+        KonekcijaNaBazu _db = new KonekcijaNaBazu();
         public frmStudenti()
         {
             InitializeComponent();
@@ -35,13 +37,13 @@ namespace DLWMS.WinForms.III
         private void UcitajPodatkeOStudentima(List<Student> studenti = null)
         {
             dgvStudenti.DataSource = null;
-            dgvStudenti.DataSource = studenti ?? InMemoryDB.Studenti;
+            dgvStudenti.DataSource = studenti ?? _db.Studenti.ToList(); //InMemoryDB.Studenti;
         }
 
         private void txtPretragaStudenta_TextChanged(object sender, EventArgs e)
         {
             string filter = txtPretragaStudenta.Text;
-            var rezultatiPretrage = InMemoryDB.Studenti.Where(s => s.Ime.ToLower().Contains(filter) ||
+            var rezultatiPretrage = _db.Studenti.Where(s => s.Ime.ToLower().Contains(filter) ||
                                                               s.Prezime.ToLower().Contains(filter)).ToList();
             UcitajPodatkeOStudentima(rezultatiPretrage);
         }

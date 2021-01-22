@@ -1,5 +1,6 @@
 ﻿using DLWMS.WinForms.I;
 using DLWMS.WinForms.IV;
+using DLWMS.WinForms.V;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,6 +17,7 @@ namespace DLWMS.WinForms.III
     {
         private Student _student;
         private bool _promjena;
+        KonekcijaNaBazu _db = new KonekcijaNaBazu();
         public frmNoviStudent()
         {
             InitializeComponent();
@@ -54,7 +56,7 @@ namespace DLWMS.WinForms.III
                 cbGodinaStudija.SelectedIndex = cbGodinaStudija.Items.IndexOf(_student.GodinaStudija.ToString());
                 cbAktivan.Checked = _student.Aktivan;
                 cmbSpol.SelectedValue = _student.Spol.Id;
-                pictureBox2.Image = _student.Slika;
+                pictureBox2.Image = ImageHelper.FromByteToImage(_student.Slika);
             }
         }
 
@@ -72,7 +74,7 @@ namespace DLWMS.WinForms.III
 
         private void GenerisiBrojIndeksa()
         {
-            txtIndeks.Text = $"IB{((DateTime.Now.Year - 2000) * 10000) + InMemoryDB.Studenti.Count}";
+            txtIndeks.Text = $"IB{((DateTime.Now.Year - 2000) * 10000) + _db.Studenti.Count()}";
         }
 
         private void txtIme_TextChanged(object sender, EventArgs e)
@@ -103,7 +105,7 @@ namespace DLWMS.WinForms.III
                 if (!_promjena)
                 {
                     _student = new Student();
-                    _student.Id = InMemoryDB.Studenti.Count + 1;
+                    //_student.Id = InMemoryDB.Studenti.Count() + 1;
                 }
                 _student.Ime = txtIme.Text;
                 _student.Prezime = txtPrezime.Text;
@@ -113,16 +115,18 @@ namespace DLWMS.WinForms.III
                 _student.GodinaStudija = int.Parse(cbGodinaStudija.Text);
                 _student.Aktivan = cbAktivan.Checked;
                 _student.Spol = cmbSpol.SelectedItem as Spol;
-                _student.Slika = pictureBox2.Image;
+                _student.Slika = ImageHelper.FromImageToByte(pictureBox2.Image);
                 if (_promjena)
                 {
                     MessageBox.Show(Poruke.StudentPodaciUspjesnoModifikovani);
                 }
                 else
                 {
-                    InMemoryDB.Studenti.Add(_student);
+                    //InMemoryDB.Studenti.Add(_student);
+                    _db.Studenti.Add(_student);
                     MessageBox.Show(Poruke.StudentUspjesnoDodan);
                 }
+                _db.SaveChanges();
                 Close();
             }
         }
