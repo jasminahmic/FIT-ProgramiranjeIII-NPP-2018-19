@@ -1,4 +1,5 @@
 ﻿using DLWMS.WinForms.IV;
+using DLWMS.WinForms.VI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -24,7 +25,7 @@ namespace DLWMS.WinForms.III
         public bool Aktivan { get; set; }
         public virtual Spol Spol { get; set; }
         public List<PolozeniPredmet> PolozeniPredmeti { get; set; }
-        public ICollection<Uloga> Uloge { get; set; }
+        public virtual ICollection<Uloga> Uloge { get; set; }
         public Student()
         {
             PolozeniPredmeti = new List<PolozeniPredmet>();

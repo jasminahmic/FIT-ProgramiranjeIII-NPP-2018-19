@@ -98,7 +98,6 @@
     </Compile>
     <Compile Include="IV\Predmet.cs" />
     <Compile Include="IV\Spol.cs" />
-    <Compile Include="IV\Uloga.cs" />
     <Compile Include="I\frmPrijava.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,6 +117,7 @@
     <Compile Include="VI\DLWMSdb.cs" />
     <Compile Include="VI\StudentiPredmeti.cs" />
     <Compile Include="VI\StudentiUloge.cs" />
+    <Compile Include="VI\Uloga.cs" />
     <Compile Include="V\frmSQLite.cs">
       <SubType>Form</SubType>
     </Compile>

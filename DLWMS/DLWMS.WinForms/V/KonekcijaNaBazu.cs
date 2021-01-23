@@ -35,7 +35,7 @@ namespace DLWMS.WinForms.V
                 .Map(su => 
                 {
                     su.MapLeftKey("Student_Id");
-                    su.MapRightKey("Uloge_Id");
+                    su.MapRightKey("Uloga_Id");
                     su.ToTable("StudentiUloge");
                 });
         }

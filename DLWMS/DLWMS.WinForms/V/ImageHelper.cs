@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DLWMS.WinForms.V
 {
-    class ImageHelper
+    public class ImageHelper
     {
         public static byte[] FromImageToByte(Image slika)
         {

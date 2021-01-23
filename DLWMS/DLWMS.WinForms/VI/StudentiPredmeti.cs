@@ -13,8 +13,8 @@ namespace DLWMS.WinForms.VI
     public class StudentiPredmeti
     {
         public int Id { get; set; }
-        public Predmet Predmet { get; set; }
-        public Student Student { get; set; }
+        public Predmet Predmeti { get; set; }
+        public Student Studenti { get; set; }
         public int Ocjena { get; set; }
         public DateTime Datum { get; set; }
     }

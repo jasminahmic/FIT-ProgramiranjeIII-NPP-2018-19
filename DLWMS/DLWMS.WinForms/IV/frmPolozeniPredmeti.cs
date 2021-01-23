@@ -49,7 +49,7 @@ namespace DLWMS.WinForms.IV
         private void UcitajPolozenePredmete()
         {
             dgvPolozeniPredmeti.DataSource = null;
-            dgvPolozeniPredmeti.DataSource = _db.StudentiPredmeti.Where(x => x.Student.Id == _student.Id).ToList();
+            dgvPolozeniPredmeti.DataSource = _db.StudentiPredmeti.Where(x => x.Studenti.Id == _student.Id).ToList();
         }
 
         private void UcitajPredmete()
@@ -65,10 +65,10 @@ namespace DLWMS.WinForms.IV
             {
                 _db.StudentiPredmeti.Add(new StudentiPredmeti()
                 {
-                    Student = _student,
-                    Predmet = cmbPredmet.SelectedItem as Predmet,
                     Datum = dtpDatumPolaganja.Value,
-                    Ocjena = int.Parse(cmbOcjena.Text)
+                    Ocjena = int.Parse(cmbOcjena.Text),
+                    Predmeti = cmbPredmet.SelectedItem as Predmet,
+                    Studenti = _student
                 });
                 _db.SaveChanges();
                 //_student.PolozeniPredmeti.Add(new PolozeniPredmet()
@@ -128,6 +128,11 @@ namespace DLWMS.WinForms.IV
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void dgvUloge_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

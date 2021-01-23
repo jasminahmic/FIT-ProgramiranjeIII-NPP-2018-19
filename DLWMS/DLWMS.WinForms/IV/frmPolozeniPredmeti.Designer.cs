@@ -31,9 +31,6 @@ namespace DLWMS.WinForms.IV
         {
             this.components = new System.ComponentModel.Container();
             this.dgvPolozeniPredmeti = new System.Windows.Forms.DataGridView();
-            this.Predmet = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ocjena = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DatumPolaganja = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmbPredmet = new System.Windows.Forms.ComboBox();
             this.cmbOcjena = new System.Windows.Forms.ComboBox();
             this.dtpDatumPolaganja = new System.Windows.Forms.DateTimePicker();
@@ -45,6 +42,9 @@ namespace DLWMS.WinForms.IV
             this.lblProsjek = new System.Windows.Forms.ToolStripStatusLabel();
             this.dgvUloge = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
+            this.Predmet = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ocjena = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DatumPolaganja = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPolozeniPredmeti)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.err)).BeginInit();
             this.statusStrip1.SuspendLayout();
@@ -65,30 +65,6 @@ namespace DLWMS.WinForms.IV
             this.dgvPolozeniPredmeti.Size = new System.Drawing.Size(705, 235);
             this.dgvPolozeniPredmeti.TabIndex = 0;
             this.dgvPolozeniPredmeti.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPolozeniPredmeti_CellContentClick);
-            // 
-            // Predmet
-            // 
-            this.Predmet.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Predmet.DataPropertyName = "Predmet";
-            this.Predmet.HeaderText = "Predmet";
-            this.Predmet.MinimumWidth = 6;
-            this.Predmet.Name = "Predmet";
-            // 
-            // Ocjena
-            // 
-            this.Ocjena.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Ocjena.DataPropertyName = "Ocjena";
-            this.Ocjena.HeaderText = "Ocjena";
-            this.Ocjena.MinimumWidth = 6;
-            this.Ocjena.Name = "Ocjena";
-            // 
-            // DatumPolaganja
-            // 
-            this.DatumPolaganja.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.DatumPolaganja.DataPropertyName = "Datum";
-            this.DatumPolaganja.HeaderText = "Datum polaganja";
-            this.DatumPolaganja.MinimumWidth = 6;
-            this.DatumPolaganja.Name = "DatumPolaganja";
             // 
             // cmbPredmet
             // 
@@ -176,6 +152,7 @@ namespace DLWMS.WinForms.IV
             this.dgvUloge.RowTemplate.Height = 24;
             this.dgvUloge.Size = new System.Drawing.Size(321, 98);
             this.dgvUloge.TabIndex = 6;
+            this.dgvUloge.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUloge_CellContentClick);
             // 
             // button1
             // 
@@ -187,6 +164,30 @@ namespace DLWMS.WinForms.IV
             this.button1.Text = "Dodaj";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // Predmet
+            // 
+            this.Predmet.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Predmet.DataPropertyName = "Predmeti";
+            this.Predmet.HeaderText = "Predmet";
+            this.Predmet.MinimumWidth = 6;
+            this.Predmet.Name = "Predmet";
+            // 
+            // Ocjena
+            // 
+            this.Ocjena.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Ocjena.DataPropertyName = "Ocjena";
+            this.Ocjena.HeaderText = "Ocjena";
+            this.Ocjena.MinimumWidth = 6;
+            this.Ocjena.Name = "Ocjena";
+            // 
+            // DatumPolaganja
+            // 
+            this.DatumPolaganja.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.DatumPolaganja.DataPropertyName = "Datum";
+            this.DatumPolaganja.HeaderText = "Datum polaganja";
+            this.DatumPolaganja.MinimumWidth = 6;
+            this.DatumPolaganja.Name = "DatumPolaganja";
             // 
             // frmPolozeniPredmeti
             // 
@@ -227,10 +228,10 @@ namespace DLWMS.WinForms.IV
         private System.Windows.Forms.ToolStripStatusLabel lblBrojZapisa;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
         private System.Windows.Forms.ToolStripStatusLabel lblProsjek;
+        private System.Windows.Forms.DataGridView dgvUloge;
+        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Predmet;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ocjena;
         private System.Windows.Forms.DataGridViewTextBoxColumn DatumPolaganja;
-        private System.Windows.Forms.DataGridView dgvUloge;
-        private System.Windows.Forms.Button button1;
     }
 }
