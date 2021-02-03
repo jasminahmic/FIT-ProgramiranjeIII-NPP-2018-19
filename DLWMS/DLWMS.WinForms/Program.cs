@@ -2,6 +2,7 @@
 using DLWMS.WinForms.II;
 using DLWMS.WinForms.III;
 using DLWMS.WinForms.V;
+using DLWMS.WinForms.VII;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +21,7 @@ namespace DLWMS.WinForms
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmSQLite());
+            Application.Run(new frmIzvjestaji());
         }
     }
 }
