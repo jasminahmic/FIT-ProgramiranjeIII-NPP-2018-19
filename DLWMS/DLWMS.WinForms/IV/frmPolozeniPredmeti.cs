@@ -2,6 +2,7 @@
 using DLWMS.WinForms.III;
 using DLWMS.WinForms.V;
 using DLWMS.WinForms.VI;
+using DLWMS.WinForms.VII;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -134,6 +135,26 @@ namespace DLWMS.WinForms.IV
         {
 
         }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            var dtoStudentPrint = new dtoStudentPrint()
+            {
+                Indeks = _student.Indeks,
+                ImePrezime = $"{_student.Ime} {_student.Prezime}",
+                Polozeni = dgvPolozeniPredmeti.DataSource as List<StudentiPredmeti>
+            };
+
+            frmIzvjestaji frmIzvjestaji = new frmIzvjestaji(dtoStudentPrint);
+            frmIzvjestaji.ShowDialog();
+        }
+    }
+
+    public class dtoStudentPrint
+    {
+        public string Indeks { get; set; }
+        public string ImePrezime { get; set; }
+        public List<StudentiPredmeti> Polozeni { get; set; }
     }
 }
 

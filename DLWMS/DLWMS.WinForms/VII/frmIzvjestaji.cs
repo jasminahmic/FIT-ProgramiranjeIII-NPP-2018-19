@@ -1,4 +1,6 @@
-﻿using Microsoft.Reporting.WinForms;
+﻿using DLWMS.WinForms.III;
+using DLWMS.WinForms.IV;
+using Microsoft.Reporting.WinForms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,25 +15,43 @@ namespace DLWMS.WinForms.VII
 {
     public partial class frmIzvjestaji : Form
     {
+        private dtoStudentPrint student;
+
         public frmIzvjestaji()
         {
             InitializeComponent();
         }
 
+        public frmIzvjestaji(dtoStudentPrint student) : this()
+        {
+            this.student = student;
+        }
+
         private void frmIzvjestaji_Load(object sender, EventArgs e)
         {
             ReportParameterCollection rpc = new ReportParameterCollection();
-            rpc.Add(new ReportParameter("Indeks", "IB200002"));
-            rpc.Add(new ReportParameter("ImePrezime", "Denis Music"));
+            rpc.Add(new ReportParameter("Indeks", student?.Indeks));
+            rpc.Add(new ReportParameter("ImePrezime", student?.ImePrezime));
 
             dsDLWMS.PolozeniDataTable tblPolozeni = new dsDLWMS.PolozeniDataTable();
-            for (int i = 0; i < 5; i++)
+            //foreach (var studenti in student.Polozeni)
+            //{
+            //    var red = tblPolozeni.NewPolozeniRow();
+            //    red.Id = studenti.Id;
+            //    red.Naziv = studenti.Predmeti.Naziv;
+            //    red.Ocjena = studenti.Ocjena;
+            //    red.Datum = studenti.Datum.ToString();
+            //    tblPolozeni.Rows.Add(red);
+            //}
+
+            for (int i = 0; i < student.Polozeni.Count; i++)
             {
-                dsDLWMS.PolozeniRow red = tblPolozeni.NewPolozeniRow();
-                red.Id = i + 1;
-                red.Naziv = $"Predmet {i + 1}";
-                red.Ocjena = 6;
-                red.Datum = DateTime.Now.ToString();
+                var red = tblPolozeni.NewPolozeniRow();
+                var studenti = student.Polozeni[i];
+                red.Id = studenti.Id;
+                red.Naziv = studenti.Predmeti.Naziv;
+                red.Ocjena = studenti.Ocjena;
+                red.Datum = studenti.Datum.ToString();
                 tblPolozeni.Rows.Add(red);
             }
 

@@ -21,7 +21,7 @@ namespace DLWMS.WinForms
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmIzvjestaji());
+            Application.Run(new frmStudenti());
         }
     }
 }
