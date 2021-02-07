@@ -68,6 +68,8 @@ namespace DLWMS.WinForms.I
         public const string KorisnickiNalogNijeAktivan = "Korisnički nalog nije aktivan!";
         public const string StudentUspjesnoDodan = "Student uspješno dodan!";
         public const string StudentPodaciUspjesnoModifikovani = "Podaci studenta uspješno modifikovani!";
+        public const string IzlazakIzPrograma = "Da li želite izaći iz programa?";
+        public const string Pitanje = "Pitanje";
     }
 
     public class Validator
